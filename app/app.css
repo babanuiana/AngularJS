@@ -12,6 +12,7 @@ body {
 .poster {
     width: 120px;
     height: 170px;
+    cursor: pointer;
 }
 
 .list {
