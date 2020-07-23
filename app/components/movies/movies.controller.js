@@ -16,7 +16,7 @@ angular.module('myApp.index', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/movies', {
-        templateUrl: 'components/moviesPage/movies.view.html',
+        templateUrl: 'components/movies/movies.view.html',
         controller: 'moviesCtrl'
     });
 }])
