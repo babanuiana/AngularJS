@@ -8,18 +8,14 @@ function MainController($scope, MovieService) {
             $scope.movies = response;
         })
     }
-
 }
 
-angular.module('myApp.index', ['ngRoute'])
+angular.module('list', [])
 
+.component('list', {
+    templateUrl: 'components/movies-list/movies-list.view.html',
 
-.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/movies', {
-        templateUrl: 'components/movies/movies.view.html',
-        controller: 'moviesCtrl'
-    });
-}])
+})
 
 .controller('moviesCtrl', [
     '$scope',

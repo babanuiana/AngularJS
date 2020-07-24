@@ -18,7 +18,7 @@ body {
 .list {
     user-select: none;
     width: 100%;
-    min-height: 100vh;
+    min-height: 50vh;
     color: white;
     overflow-y: auto;
     overflow-x: hidden;
