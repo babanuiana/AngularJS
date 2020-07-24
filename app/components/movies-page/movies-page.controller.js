@@ -1,9 +1,5 @@
 function MainController($scope) {
 
-    $scope.hello = function() {
-
-        console.log('hello');
-    }
 }
 
 angular.module('moviesPage', ['ngRoute'])
