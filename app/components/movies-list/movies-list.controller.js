@@ -1,26 +1,27 @@
 'use strict';
 
-function MainController($scope, MovieService) {
+class ListController {
+    sendRequest() {
+        movieService.getMovies()
+            .then(function (response) {
+                $scope.movies = response;
+            })
+    }
 
-    const $ctrl = this;
-    console.log('type', $ctrl.type);
-
-    $scope.sendRequest = function() {
-        MovieService.getMovies().then(function(response) {
-            $scope.movies = response;
-        })
+    $onInit() {
+        console.log('type', this.type);
+        sendRequest();
     }
 }
 
 angular.module('list', [])
-
-.component('list', {
-    templateUrl: 'components/movies-list/movies-list.view.html',
-    bindings: {
-        type: '<',
-    }
-
-})
+    .component('list', {
+        templateUrl: 'components/movies-list/movies-list.view.html',
+        bindings: {
+            type: '@',
+        },
+        controller: ListController
+    });
 
 // .directive('type', function($scope) {
 //     return {
@@ -30,8 +31,8 @@ angular.module('list', [])
 //     }
 // })
 
-.controller('moviesCtrl', [
-    '$scope',
-    'MovieService',
-    MainController
-]);
+// .controller('moviesCtrl', [
+//     '$scope',
+//     'MovieService',
+//     MainController
+// ]);

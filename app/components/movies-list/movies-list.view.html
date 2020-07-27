@@ -1,7 +1,7 @@
-<div ng-controller="moviesCtrl">
+<div>
     <h2 class="title">Movies</h2>
 
-    <div class="list" ng-init="sendRequest();">
+    <div class="list">
         <div class="list-wrapper">
             <span ng-repeat="movie in movies" class="movie">
                 <img ng-src="http://image.tmdb.org/t/p/original/{{movie.poster_path}}" class="poster" />
