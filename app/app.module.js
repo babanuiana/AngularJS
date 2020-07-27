@@ -1,10 +1,11 @@
 'use strict';
 
-// Declare app level module which depends on views, and core components
+import moviesPage from 'app/components/movies-page/movies-page.controller.js';
+
 angular.module('myApp', [
     'ngRoute',
     'list',
-    'moviesPage',
+    moviesPage,
     'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

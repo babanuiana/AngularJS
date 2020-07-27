@@ -2,7 +2,7 @@ function MainController($scope) {
 
 }
 
-angular.module('moviesPage', ['ngRoute'])
+export default angular.module('moviesPage', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/', {
