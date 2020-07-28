@@ -1,11 +1,11 @@
-angular.module('myApp', [
+angular.module('moviesApp', [
     'ngRoute',
     'list',
     'moviesPage',
-    'myApp.version'
+    'moviesApp.version'
 ]).
 
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
     $locationProvider.hashPrefix('!');
 
     $routeProvider.otherwise({ redirectTo: '/movies' });

@@ -1,11 +1,12 @@
 angular
     .module('moviesPage', ['ngRoute'])
-    .config(['$routeProvider', function($routeProvider) {
+    .component('moviesPage', {
+        templateUrl: 'components/movies-page/movies-page.view.html',
+        controller: () => {}
+
+    })
+    .config(['$routeProvider', ($routeProvider) => {
         $routeProvider.when('/', {
             templateUrl: 'components/movies-page/movies-page.view.html',
         });
     }])
-    .controller('moviesPageController', [
-        '$scope',
-        () => {}
-    ]);
