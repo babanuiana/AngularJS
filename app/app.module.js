@@ -2,7 +2,6 @@ angular.module('moviesApp', [
     'ngRoute',
     'list',
     'moviesPage',
-    'moviesApp.version'
 ]).
 
 config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
