@@ -39,3 +39,13 @@ body {
     white-space: nowrap;
     overflow-y: hidden;
 }
+
+.submit_button {
+    cursor: pointer;
+    margin-top: 25px;
+    outline: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: grey;
+    color: white;
+}

@@ -1,11 +1,16 @@
-angular.module('moviesApp', [
-    'ngRoute',
-    'list',
-    'moviesPage',
-]).
+(function() {
 
-config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
-    $locationProvider.hashPrefix('!');
+    angular
+        .module('moviesApp', [
+            'ngRoute',
+            'list',
+            'moviesPage',
+            'login',
+            'loginPage',
+        ])
+        .config(['$locationProvider', '$routeProvider', ($locationProvider, $routeProvider) => {
+            $locationProvider.hashPrefix('!');
 
-    $routeProvider.otherwise({ redirectTo: '/movies' });
-}]);
+            $routeProvider.otherwise({ redirectTo: '/login' });
+        }]);
+})()

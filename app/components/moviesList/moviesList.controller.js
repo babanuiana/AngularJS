@@ -2,6 +2,7 @@ class ListController {
     constructor(MovieService) {
         this.movieService = MovieService;
     }
+
     $onInit() {
         this.movieService.getMovies(this.type)
             .then((response) => this.movies = response);
@@ -11,7 +12,7 @@ class ListController {
 angular
     .module('list', [])
     .component('list', {
-        templateUrl: 'components/movies-list/movies-list.view.html',
+        templateUrl: 'components/moviesList/moviesList.view.html',
         bindings: { type: '@', title: '@' },
         controller: ListController
 
