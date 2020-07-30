@@ -2,13 +2,13 @@ class ListController {
     constructor(MovieService) {
         this.movieService = MovieService;
     }
-
     $onInit() {
         this.movieService.getMovies(this.type)
-            .then((response) => this.movies = response);
+            .then((response) => {
+                this.moviesPath = response;
+            })
     }
 }
-
 angular
     .module('list', [])
     .component('list', {

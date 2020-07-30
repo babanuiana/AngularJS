@@ -20,21 +20,15 @@
                 })
                 .otherwise({ redirectTo: '/login' });
         }])
+        .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
 
+            $rootScope.$on('$routeChangeStart', function(event) {
 
-    .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
-        $rootScope.$on('$routeChangeStart', function(event) {
-
-            console.log(AuthService.isAuth());
-            // if (!AuthService.isAuth()) {
-            //     event.preventDefault();
-            //     $location.path('/login');
-            // } else {
-            //     $location.path('/movies');
-            // }
-
-        });
-    }])
-
-
+                if (!AuthService.isAuth()) {
+                    $location.path('/login');
+                } else {
+                    $location.path('/movies');
+                }
+            });
+        }])
 })()

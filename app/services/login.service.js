@@ -10,7 +10,6 @@ angular
                     return response.data.request_token;
                 })
         }
-
         this.createSession = (token) => {
             requestToken = { "request_token": token };
 
