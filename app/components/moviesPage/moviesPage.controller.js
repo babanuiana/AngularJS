@@ -5,8 +5,3 @@ angular
         controller: () => {}
 
     })
-    .config(['$routeProvider', ($routeProvider) => {
-        $routeProvider.when('/movies', {
-            templateUrl: 'components/moviesPage/moviesPage.view.html',
-        });
-    }])
