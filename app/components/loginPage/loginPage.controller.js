@@ -1,7 +1,9 @@
-angular
-    .module('loginPage', ['ngRoute'])
-    .component('loginPage', {
-        templateUrl: 'components/loginPage/loginPage.view.html',
-        controller: () => {}
+(function() {
+    angular
+        .module('loginPage', ['ngRoute'])
+        .component('loginPage', {
+            templateUrl: 'components/loginPage/loginPage.view.html',
+            controller: () => {}
 
-    })
+        })
+})()

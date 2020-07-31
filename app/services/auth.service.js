@@ -1,12 +1,14 @@
-angular
-    .module('moviesApp')
-    .service('AuthService', function() {
+(function() {
+    angular
+        .module('moviesApp')
+        .service('AuthService', function() {
 
-        this.isAuth = () => {
-            const sessionId = localStorage.getItem('sessionId');
+            this.isAuth = () => {
+                const sessionId = localStorage.getItem('sessionId');
 
-            if (sessionId !== null) {
-                return true;
-            } else return false;
-        }
-    })
+                if (sessionId !== null) {
+                    return true;
+                } else return false;
+            }
+        })
+})()
