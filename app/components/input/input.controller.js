@@ -2,7 +2,6 @@
     function InputController() {
         const ctrl = this;
         this.user = {};
-        console.log(this.name);
     }
     angular
         .module('inputForm', [])

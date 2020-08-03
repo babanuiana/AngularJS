@@ -12,7 +12,7 @@
                 return $http
                     .post(LIST, movie)
                     .then((response) => {
-                        console.log(response)
+                        // console.log(response)
                     })
                     .catch((response) => alert('Error:', response.status))
             }

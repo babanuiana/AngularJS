@@ -8,7 +8,6 @@
             const url = $location.absUrl();
             const regToken = /request_token=(.*)&approved=true/;
             const newToken = url.match(regToken);
-
             if (newToken !== null) {
                 return newToken[1]
             } else { return null }
@@ -26,7 +25,7 @@
         if (newToken) {
             ctrl.loginService.createSession(newToken)
                 .then(() => {
-                    $location.path('/movies');
+                    // $location.path('/movies');
                 })
         }
     }
