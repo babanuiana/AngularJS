@@ -1,0 +1,8 @@
+<div class="list">
+    <h2 class="title">{{$ctrl.title}}</h2>
+    <div class="list-wrapper">
+        <span ng-repeat="movie in $ctrl.moviesPath" class="movie">
+            <img ng-src="{{movie.posterPath}}" class="poster" />
+        </span>
+    </div>
+</div>

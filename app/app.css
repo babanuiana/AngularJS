@@ -1,0 +1,65 @@
+/* app css stylesheet */
+
+body {
+    background-color: black;
+}
+
+.title {
+    color: yellow;
+    text-align: center;
+}
+
+.poster {
+    width: 120px;
+    height: 170px;
+    cursor: pointer;
+}
+
+.list {
+    user-select: none;
+    width: 100%;
+    min-height: 50vh;
+    color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 50px;
+}
+
+.movie {
+    display: inline-block;
+    text-align: center;
+    border: 1px solid white;
+}
+
+.list-wrapper {
+    margin: 30px 0;
+    height: 290px;
+    width: 100%;
+    overflow: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+}
+
+.form-input {
+    padding-top: 30px;
+    width: 150px;
+    color: yellow;
+}
+
+.favourites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0 100px;
+}
+
+.submit_button {
+    cursor: pointer;
+    margin-top: 25px;
+    outline: none;
+    padding: 10px 25px;
+    border-radius: 10px;
+    background-color: grey;
+    color: white;
+}
