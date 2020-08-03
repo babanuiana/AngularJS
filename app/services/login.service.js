@@ -1,24 +1,23 @@
 (function() {
     angular
-        .module('login')
+        .module('moviesApp')
         .service('LoginService', function($http) {
-
+            const TOKEN = 'https://api.themoviedb.org/3/authentication/token/new?api_key=fc298428bb77d2a10fb5e0bc411eb836';
+            const SESSION = 'https://api.themoviedb.org/3/authentication/session/new?api_key=fc298428bb77d2a10fb5e0bc411eb836';
             this.getToken = () => {
-                console.log('get token');
                 return $http
-                    .get(`https://api.themoviedb.org/3/authentication/token/new?api_key=fc298428bb77d2a10fb5e0bc411eb836`)
-                    .then((response) => {
-                        return response.data.request_token;
-                    })
+                    .get(TOKEN)
+                    .then((response) => response.data.request_token)
+                    .catch((response) => alert('Error:', response.status))
             }
             this.createSession = (token) => {
-                requestToken = { "request_token": token };
-
+                const requestToken = { "request_token": token };
                 return $http
-                    .post(`https://api.themoviedb.org/3/authentication/session/new?api_key=fc298428bb77d2a10fb5e0bc411eb836`, requestToken)
+                    .post(SESSION, requestToken)
                     .then((response) => {
-                        return response.data.session_id;
+                        localStorage.setItem('sessionId', response.data.session_id);;
                     })
+                    .catch((response) => alert('Error:', response.status))
             }
         })
 })()

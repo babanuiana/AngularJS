@@ -40,6 +40,20 @@ body {
     overflow-y: hidden;
 }
 
+.form-input {
+    padding-top: 30px;
+    width: 150px;
+    color: yellow;
+}
+
+.favourites {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px 0 100px;
+}
+
 .submit_button {
     cursor: pointer;
     margin-top: 25px;

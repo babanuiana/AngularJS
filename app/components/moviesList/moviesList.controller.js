@@ -1,10 +1,10 @@
 (function() {
-    class ListController {
-        constructor(MovieService) {
-            this.movieService = MovieService;
-        }
-        $onInit() {
-            this.movieService.getMovies(this.type)
+    function ListController(MovieService) {
+        const ctrl = this;
+        ctrl.movieService = MovieService;
+
+        ctrl.$onInit = function() {
+            ctrl.movieService.getMovies(this.type)
                 .then((response) => {
                     this.moviesPath = response;
                 })
@@ -16,7 +16,5 @@
             templateUrl: 'components/moviesList/moviesList.view.html',
             bindings: { type: '@', title: '@' },
             controller: ListController,
-            controllerAs: 'list'
-
         })
 })()

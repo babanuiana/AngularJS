@@ -3,8 +3,9 @@
         .module('moviesApp', [
             'ngRoute',
             'list',
+            'inputForm',
             'moviesPage',
-            'login',
             'loginPage',
+            'favouritesList',
         ])
 })()
