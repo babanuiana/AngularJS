@@ -3,11 +3,14 @@
     function LoginCtrl(LoginService, $location) {
         const ctrl = this;
         ctrl.loginService = LoginService;
+        const qs = $location.search();
+        console.log(qs);
 
         ctrl.extractToken = function() {
             const url = $location.absUrl();
             const regToken = /request_token=(.*)&approved=true/;
             const newToken = url.match(regToken);
+
 
             if (newToken !== null) {
                 return newToken[1]
@@ -26,7 +29,8 @@
         if (newToken) {
             ctrl.loginService.createSession(newToken)
                 .then(() => {
-                    $location.path('/movies');
+
+                    // $location.path('/movies');
                 })
         }
     }

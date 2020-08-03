@@ -1,7 +1,8 @@
 (function() {
     angular
         .module('moviesApp')
-        .config(['$routeProvider', ($routeProvider) => {
+        .config(['$routeProvider', ($routeProvider, $locationProvider) => {
+            $locationProvider.html5Mode(true);
             $routeProvider
                 .when('/movies', {
                     templateUrl: 'components/moviesPage/moviesPage.view.html',
