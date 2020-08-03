@@ -16,7 +16,7 @@
         ctrl.auth = function() {
             ctrl.loginService.getToken()
                 .then((response) => {
-                    window.location.assign(`https://www.themoviedb.org/authenticate/${response}?redirect_to=http://localhost:8000/#!/movies`);
+                    window.location.assign(`https://www.themoviedb.org/authenticate/${response}?redirect_to=http://localhost:8000/`);
                 })
         }
 
@@ -25,7 +25,7 @@
         if (newToken) {
             ctrl.loginService.createSession(newToken)
                 .then(() => {
-                    // $location.path('/movies');
+                    $location.path('/movies');
                 })
         }
     }

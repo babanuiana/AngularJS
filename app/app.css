@@ -63,3 +63,7 @@ body {
     background-color: grey;
     color: white;
 }
+
+.form-input input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}

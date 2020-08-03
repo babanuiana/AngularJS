@@ -1,13 +1,14 @@
 (function() {
     function InputController() {
-        const ctrl = this;
-        this.user = {};
+        const vm = this;
+
     }
     angular
         .module('inputForm', [])
         .component('inputForm', {
             templateUrl: 'components/input/input.view.html',
-            bindings: { label: '@', title: '@' },
+            bindings: { label: '@', title: '@', data: '=' },
+            controllerAs: 'vm',
             controller: InputController
 
         })

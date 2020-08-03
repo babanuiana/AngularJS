@@ -1,11 +1,15 @@
 (function() {
     function ListController(FavouritesService) {
-        const ctrl = this;
-        ctrl.favouritesService = FavouritesService;
 
-        ctrl.submit = function() {
-            ctrl.favouritesService.createList()
-                .then((response) => { console.log(response); })
+        var vm = this;
+        vm.data = {};
+        console.log(vm.data);
+        this.onStatusChange = function(data) {
+            vm.mandatoryFilesIncluded = data;
+        };
+        this.submit = function(data) {
+            console.log(vm.data);
+
         }
     }
 
