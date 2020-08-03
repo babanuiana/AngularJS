@@ -5,7 +5,13 @@
             $routeProvider
                 .when('/movies', {
                     templateUrl: 'components/moviesPage/moviesPage.view.html',
-                    controller: 'MoviesCtrl'
+                    controller: 'MoviesCtrl',
+                    resolve: {
+                        //This function is injected with the AuthService where you'll put your authentication logic
+                        'auth': function(AuthService) {
+                            return AuthService.isAuth();
+                        }
+                    }
                 })
                 .when('/favourites', {
                     templateUrl: 'components/favouritesList/favouritesList.view.html',
@@ -21,9 +27,9 @@
         }])
         .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
 
-            $rootScope.$on('$routeChangeStart', function(event) {
+            $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
 
-                if (!AuthService.isAuth()) {
+                if (rejection === 'Not Authenticated') {
                     $location.path('/login');
                 }
             });
