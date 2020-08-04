@@ -1,17 +1,15 @@
 'use strict';
 
-describe('favouritesList module', function() {
+describe('favouritesList module', function () {
 
   beforeEach(function () {
-    module('moviesApp');
+    module('services.favourites');
     module('favouritesList');
-});
+  });
 
+  describe('FavouritesList controller', function () {
 
-  describe('FavouritesList controller', function(){
-
-    it('should ....', inject(function($controller) {
-      //spec body
+    it('should ....', inject(function ($controller) {
       var $scope = {};
       var view1Ctrl = $controller('FavouritesCtrl', { $scope: $scope });
       expect(view1Ctrl).toBeDefined();
