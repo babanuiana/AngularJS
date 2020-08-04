@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('moviesApp')
+        .module('services.auth', [])
         .service('AuthService', function() {
             this.isAuth = () => {
                 const sessionId = localStorage.getItem('sessionId');

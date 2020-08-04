@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('moviesApp')
+        .module('services.favourites', [])
         .service('FavouritesService', function($http) {
             const LIST = 'https://api.themoviedb.org/3/list?api_key=fc298428bb77d2a10fb5e0bc411eb836';
             this.createList = () => {

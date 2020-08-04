@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('moviesApp')
+        .module('services.login', [])
         .service('LoginService', function($http) {
             const TOKEN = 'https://api.themoviedb.org/3/authentication/token/new?api_key=fc298428bb77d2a10fb5e0bc411eb836';
             const SESSION = 'https://api.themoviedb.org/3/authentication/session/new?api_key=fc298428bb77d2a10fb5e0bc411eb836';
