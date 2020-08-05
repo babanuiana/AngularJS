@@ -5,19 +5,23 @@
         vm.favouritesService = FavouritesService;
 
         this.submit = function() {
-
             if (vm.data.name && vm.data.description) {
                 vm.favouritesService.createList(vm.data.name, vm.data.description)
                     .then((response) => {
                         localStorage.setItem("list", response);
-                        alert("Your list has been created!");
-                    });
+                        vm.message = 'Your list has been created!';
+                    })
+                    .catch((response) => {
+                        vm.message = response.data.status_message;
+                        // throw new Error(response.data.status_message);
+                    })
             } else {
-                alert("Fields are required!");
+                vm.submitEnabled = false;
+                //alert("Fields are required!");
             }
-
         }
     }
+
     angular
         .module('favouritesList', ['ngRoute'])
         .controller("FavouritesCtrl", ListController)

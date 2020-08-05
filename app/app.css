@@ -77,3 +77,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.response-message {
+    padding: 40px;
+    color: white;
+    font-size: 24px;
+}
