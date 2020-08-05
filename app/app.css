@@ -22,7 +22,6 @@ body {
     color: white;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 50px;
 }
 
 .movie {
@@ -70,4 +69,11 @@ body {
 
 .form-input input.ng-invalid.ng-touched {
     border: 2px solid red;
+}
+
+.create-list {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

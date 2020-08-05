@@ -11,7 +11,6 @@
                         posterPath: `${imageURL}${movie.poster_path}`,
                     })))
                     .catch((response) => alert('Error:', response.status))
-
             }
         })
 })()
