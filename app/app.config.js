@@ -35,7 +35,6 @@
                     $location.path("/login");
 
                 } else {
-                    console.log('acces ');
                     // console.log(previous, current, event);
                 }
             });

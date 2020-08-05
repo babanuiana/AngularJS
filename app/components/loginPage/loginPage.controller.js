@@ -1,5 +1,4 @@
 (function() {
-
     function LoginCtrl(LoginService, $location) {
         const ctrl = this;
         ctrl.loginService = LoginService;
@@ -25,7 +24,7 @@
         if (newToken) {
             ctrl.loginService.createSession(newToken)
                 .then(() => {
-                    $location.path('/movies');
+                    $location.url('/movies').replace();
                 })
         }
     }

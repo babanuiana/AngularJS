@@ -41,9 +41,13 @@ body {
 }
 
 .form-input {
-    padding-top: 30px;
+    padding-top: 40px;
     width: 150px;
     color: yellow;
+}
+
+.form-input input {
+    margin-top: 15px;
 }
 
 .favourites {
@@ -65,5 +69,5 @@ body {
 }
 
 .form-input input.ng-invalid.ng-touched {
-    background-color: #FA787E;
+    border: 2px solid red;
 }

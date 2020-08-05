@@ -1,14 +1,3 @@
 <div class="form-input">
-    <label>{{vm.title}}: <input ng-invalid="invalid-form" type="text" ng-model="vm.data.name" required/></label>
-    <pre>input = "{{data.name}}"</pre>
-
+    <label>{{vm.title}}: <input ng-invalid="invalid-form" type="text" ng-model="vm.data"  required/></label>
 </div>
-<style type="text/css">
-    .css-form input.ng-invalid.ng-touched {
-        border: 1px solid red;
-    }
-    
-    .css-form input.ng-valid.ng-touched {
-        background-color: #78FA89;
-    }
-</style>
