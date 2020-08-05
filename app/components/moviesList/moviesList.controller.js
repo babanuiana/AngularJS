@@ -12,9 +12,10 @@
     }
     angular
         .module('list', [])
+        .controller("ListController", ListController)
         .component('list', {
             templateUrl: 'components/moviesList/moviesList.view.html',
             bindings: { type: '@', title: '@' },
-            controller: ListController,
+            controller: 'ListController'
         })
 })()
