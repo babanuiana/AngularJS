@@ -1,6 +1,6 @@
 (function() {
     angular
-        .module('moviesPage')
+        .module('services.movies', [])
         .service('MovieService', function($http) {
             const imageURL = 'http://image.tmdb.org/t/p/original/';
             this.getMovies = (type) => {
