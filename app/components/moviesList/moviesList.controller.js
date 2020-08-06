@@ -8,6 +8,14 @@
                 .then((response) => {
                     this.moviesPath = response;
                 })
+                .catch((response) => {
+                    ctrl.code = response.data.status_code;
+                    if (ctrl.code === 7) {
+                        ctrl.message = 'Error: you are not authenticated.';
+                    } else {
+                        ctrl.message = "Something went wrong, reload the page and try again"
+                    }
+                })
         }
     }
     angular

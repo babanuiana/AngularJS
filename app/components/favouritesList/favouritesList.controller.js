@@ -1,46 +1,41 @@
 (function() {
-    function ListController(FavouritesService) {
-        var vm = this;
-        vm.data = {};
-        vm.favouritesService = FavouritesService;
-        vm.submitEnabled = false;
+    function FavouritesCtrl(FavouritesService) {
+        var ctrl = this;
+        ctrl.data = {};
+        ctrl.favouritesService = FavouritesService;
+        ctrl.disabled = true;
 
-        this.change = function() {
-            if (vm.data.name && vm.data.description) {
-                vm.submitEnabled = true;
-
+        ctrl.onChange = function() {
+            if (ctrl.data.name && ctrl.data.description) {
+                ctrl.disabled = false;
             } else {
-                vm.submitEnabled = false;
-
+                ctrl.disabled = true;
             }
         }
-        this.submit = function() {
-            if (vm.data.name && vm.data.description) {
-                vm.submitEnabled = true;
+        ctrl.submit = function() {
+            if (ctrl.data.name && ctrl.data.description) {
 
-                vm.favouritesService.createList(vm.data.name, vm.data.description)
+                ctrl.favouritesService.createList(ctrl.data.name, ctrl.data.description)
                     .then((response) => {
-                        localStorage.setItem("list", response);
-                        vm.message = 'Your list has been created!';
+                        localStorage.setItem("listId", response);
+                        ctrl.message = 'Your list has been created!';
                     })
                     .catch((response) => {
-                        const code = response.data.status_code;
-                        if (code === 401) {
-                            vm.message = 'Error: check the name and description field!';
-                        } else if (code === 404) {
-                            vm.message = "Error: server not found"
+                        ctrl.code = response.data.status_code;
+                        if (ctrl.code === 3) {
+                            ctrl.message = 'Error: you are not authenticated.';
                         } else {
-                            vm.message = "Error, reload the page and try again"
+                            ctrl.message = "Something went wrong, reload the page and try again"
                         }
-
                     })
-            } else {
-                vm.submitEnabled = false;
-                vm.message = 'Error: check the name and description field!';
-            }
+            } else { return null }
         }
     }
     angular
         .module('favouritesList', ['ngRoute'])
-        .controller("FavouritesCtrl", ListController)
+        .controller("FavouritesCtrl", FavouritesCtrl)
+        .component('favouritesList', {
+            templateUrl: 'components/favouritesList/favouritesList.view.html',
+            controller: 'FavouritesCtrl'
+        })
 })()

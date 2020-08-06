@@ -7,7 +7,6 @@
             'services.movies',
             'ngRoute',
             'list',
-            'inputForm',
             'moviesPage',
             'loginPage',
             'favouritesList',

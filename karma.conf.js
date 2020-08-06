@@ -1,28 +1,27 @@
 //jshint strict: false
 module.exports = function(config) {
-  config.set({
+    config.set({
 
-    basePath: './app',
+        basePath: './app',
 
-    files: [
-      'lib/angular/angular.js',
-      'lib/angular-route/angular-route.js',
-      '../node_modules/angular-mocks/angular-mocks.js',
-      'components/**/*.js',
-      'services/**/*.js',
-    ],
+        files: [
+            'lib/angular/angular.js',
+            'lib/angular-route/angular-route.js',
+            '../node_modules/angular-mocks/angular-mocks.js',
+            'components/**/*.js',
+            'services/**/*.js',
+        ],
 
-    autoWatch: true,
+        autoWatch: true,
 
-    frameworks: ['jasmine'],
+        frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+        browsers: ['Chrome'],
 
-    plugins: [
-      'karma-chrome-launcher',
-      'karma-firefox-launcher',
-      'karma-jasmine'
-    ]
-  });
+        plugins: [
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-jasmine'
+        ]
+    });
 };
-`a`
