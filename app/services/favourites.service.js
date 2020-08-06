@@ -1,20 +1,20 @@
 (function() {
     angular
-        .module('moviesApp')
+        .module('services.favourites', [])
         .service('FavouritesService', function($http) {
-            const LIST = 'https://api.themoviedb.org/3/list?api_key=fc298428bb77d2a10fb5e0bc411eb836';
-            this.createList = () => {
-                const movie = {
-                    "name": "This is my awesome test list.",
-                    "description": "Just an awesome list dawg.",
-                    "language": "en"
+            const sessionId = localStorage.getItem('sessionId');
+            const CREATE_LIST = `https://api.themoviedb.org/3/list?api_key=fc298428bb77d2a10fb5e0bc411eb836&session_id=${sessionId}`;
+            this.createList = (name, description) => {
+                const requestBody = {
+                    name: name,
+                    description: description,
+                    language: "en",
                 };
                 return $http
-                    .post(LIST, movie)
+                    .post(CREATE_LIST, requestBody)
                     .then((response) => {
-                        console.log(response)
+                        return response.data.list_id;
                     })
-                    .catch((response) => alert('Error:', response.status))
             }
         })
 })()

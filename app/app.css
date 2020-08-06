@@ -22,7 +22,6 @@ body {
     color: white;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 50px;
 }
 
 .movie {
@@ -41,9 +40,13 @@ body {
 }
 
 .form-input {
-    padding-top: 30px;
+    padding-top: 40px;
     width: 150px;
     color: yellow;
+}
+
+.form-input input {
+    margin-top: 15px;
 }
 
 .favourites {
@@ -62,4 +65,26 @@ body {
     border-radius: 10px;
     background-color: grey;
     color: white;
+}
+
+.form-input input.ng-invalid.ng-touched {
+    border: 2px solid red;
+}
+
+.create-list {
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.response-message {
+    padding: 40px;
+    color: white;
+    font-size: 24px;
+}
+
+input:disabled {
+    background: lightgrey;
+    color: grey;
 }

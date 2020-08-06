@@ -2,29 +2,40 @@
     angular
         .module('moviesApp')
         .config(['$routeProvider', ($routeProvider) => {
+
             $routeProvider
                 .when('/movies', {
                     templateUrl: 'components/moviesPage/moviesPage.view.html',
-                    controller: 'MoviesCtrl'
+                    controller: 'MoviesCtrl',
+                    controllerAs: "$ctrl",
+
+                    resolve: {
+                        access: ["AuthService", function(AuthService) { return AuthService.isAuth(); }],
+                    }
                 })
                 .when('/favourites', {
                     templateUrl: 'components/favouritesList/favouritesList.view.html',
                     controller: 'FavouritesCtrl',
                     controllerAs: "$ctrl",
+                    resolve: {
+                        access: ["AuthService", function(AuthService) { return AuthService.isAuth(); }],
+                    }
                 })
                 .when('/login', {
                     templateUrl: 'components/loginPage/loginPage.view.html',
                     controller: 'LoginCtrl',
                     controllerAs: "$ctrl",
                 })
-                .otherwise({ redirectTo: '/login' });
+                .otherwise({ redirectTo: '/movies' });
         }])
         .run(['$rootScope', '$location', 'AuthService', function($rootScope, $location, AuthService) {
 
-            $rootScope.$on('$routeChangeStart', function(event) {
+            $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
+                if (rejection) {
+                    $location.path("/login");
 
-                if (!AuthService.isAuth()) {
-                    $location.path('/login');
+                } else {
+                    // console.log(previous, current, event);
                 }
             });
         }])

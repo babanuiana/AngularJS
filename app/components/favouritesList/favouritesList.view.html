@@ -1,5 +1,10 @@
 <div class="favourites">
-    <input-form title="Movie Name" label="movieName"></input-form>
-    <input-form title="Movie Description" label="movieDesc"></input-form>
-    <input class="submit_button" type="submit" ng-click="$ctrl.submit()" value="Submit" />
+    <div class="form-input">
+        <label>Movie Name <input ng-invalid="invalid-form" type="text" ng-model="$ctrl.data.name" required  ng-change="$ctrl.onChange()" /></label>
+    </div>
+    <div class="form-input">
+        <label>Movie Description <input ng-invalid="invalid-form" type="text" ng-model="$ctrl.data.description" required  ng-change="$ctrl.onChange()" /></label>
+    </div>
+    <input class="submit_button" type="submit" ng-click="$ctrl.submit()" value="Submit" ng-disabled="$ctrl.disabled" />
+    <div class="response-message">{{$ctrl.message}}</div>
 </div>
