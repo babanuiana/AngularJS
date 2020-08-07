@@ -1,20 +1,17 @@
 (function() {
-    function ListController(MovieService) {
+    function ListController(MovieService, ) {
         const ctrl = this;
         ctrl.movieService = MovieService;
 
         ctrl.$onInit = function() {
-            ctrl.movieService.getMovies(this.type)
+            ctrl.movieService.getMovies(ctrl.type)
                 .then((response) => {
-                    this.moviesPath = response;
+                    ctrl.moviesPath = response;
                 })
-                .catch((response) => {
-                    ctrl.code = response.data.status_code;
-                    if (ctrl.code === 7) {
-                        ctrl.message = 'Error: you are not authenticated.';
-                    } else {
-                        ctrl.message = "Something went wrong, reload the page and try again"
-                    }
+                .catch(() => {
+
+                    ctrl.message = "Something went wrong, reload the page and try again"
+
                 })
         }
     }
