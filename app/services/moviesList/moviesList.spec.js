@@ -1,18 +1,13 @@
 'use strict';
 
-describe('MoviesList module', function() {
+describe('MoviesList service', function() {
     let $httpBackend, $rootScope;
 
     beforeEach(module('services.movies'));
-    beforeEach(module('list'));
     beforeEach(inject(function($injector) {
-        $httpBackend = $injector.get('$httpBackend');
-        $rootScope = $injector.get('$rootScope');
+        $httpBackend = $injector.get("$httpBackend");
+        $rootScope = $injector.get("$rootScope");
     }));
-    afterEach(function() {
-        $httpBackend.verifyNoOutstandingExpectation();
-        $httpBackend.verifyNoOutstandingRequest();
-    });
     const SUCCES_RESPONSE = {
         "page": 1,
         "results": [{
@@ -58,35 +53,23 @@ describe('MoviesList module', function() {
         "total_results": 19629,
         "total_pages": 982
     }
-    const ERROR_RESPONSE = {
-        "status_message": "Invalid API key: You must be granted a valid key.",
-        "success": false,
-        "status_code": 7
-    }
-    describe('Movies List controller', function() {
-        it('should load movies list', inject(function($controller) {
-            const TYPE = "new";
+    afterEach(function() {
+        $httpBackend.verifyNoOutstandingExpectation();
+        $httpBackend.verifyNoOutstandingRequest();
+    });
+    describe('MovieService', function() {
+        it('should get movies', inject(function(MovieService) {
+            let TYPE = "new";
+            let MOVIES_POSTERS = [];
             const GET_MOVIES = `https://api.themoviedb.org/3/movie/${TYPE}?api_key=fc298428bb77d2a10fb5e0bc411eb836`;
-            const ctrl = $controller('ListController', { $scope: $rootScope });
 
             $httpBackend.whenGET(GET_MOVIES).respond(SUCCES_RESPONSE);
-            ctrl.type = TYPE;
-            ctrl.$onInit();
+            MovieService.getMovies().then((response, index) => response.data.results.map((movie) => {
+                MOVIES_POSTERS[index] = `${IMAGE_URL}${movie.poster_path}`;
+            }));
 
             $httpBackend.flush();
-            expect(ctrl.moviesPath).toBeDefined();
-        }));
-        it('should handle error movies list', inject(function($controller) {
-            const TYPE = "new";
-            const GET_MOVIES = `https://api.themoviedb.org/3/movie/${MOVIE_TYPE}?api_key=fc298428bb77d2a10fb5e0bc411eb836`;
-            const ctrl = $controller('ListController', { $scope: $rootScope });
-
-            $httpBackend.whenGET(GET_MOVIES).respond(ERROR_RESPONSE);
-            ctrl.type = TYPE;
-            ctrl.$onInit();
-
-            $httpBackend.flush();
-            expect(ctrl.message).toBe('Something went wrong, reload the page and try again');
+            expect(MOVIES_POSTERS[0]).toBe(SUCCES_RESPONSE.results[0]);
         }));
     });
 });
